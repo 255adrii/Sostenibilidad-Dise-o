@@ -1,0 +1,47 @@
+Sigo con la lectura del mockup: ahora saco la estructura del Landing (medidas, colores, textos) para clavar la maquetación de inicio en la Fase 2.
+
+La Fase 2 está hecha sobre el `index.html` de tu repo, con la copia en `fase2-interna/`. No puedo hacer push a GitHub: el `fase2.zip` lleva `index.html` y `fase2-interna/index.html`, para que los copies a tu proyecto y hagas commit.
+
+Lo he abierto en un navegador de pruebas a 1440 px: sin imágenes rotas y sin etiquetas mal cerradas. Las fuentes de Google no se descargaron en mi entorno, así que lo vi con la tipografía de reserva; en tu navegador se verán Goldman y Oxanium.
+
+**Qué contiene**
+- **Estilos en línea:** los 19 `style=""` de la Fase 1 pasan a un `<style>` en el `<head>`. No queda ninguno en el HTML.
+- **Google Fonts:** Goldman (400 y 700) y Oxanium (400 a 700), con `sans-serif` de reserva.
+- **Reinicio:** `box-sizing: border-box` y margen y relleno a 0.
+- **Selectores:** etiqueta (`body`, `h1`, `h2`, `h3`, `p`, `a`, `img`, `ul`), agrupado (`h1, h2, h3`), clase (`.btn`, `.tarjeta`), id (`#hero`, `#cabecera`, `#pie`), descendientes (`.pie__columna li`, `#hero h1`), hijos directos (`.menu__lista > li`, `.tarjeta__cuerpo > *`) y pseudoclases (`:hover`, `:first-child`, `:last-child`).
+- **Fidelidad al mockup:** colores, tamaños de título (56, 40 y 22 px) y botones salen de la plantilla de Penpot. El orden de las secciones, el hero con la imagen a la derecha y las tarjetas con borde `#B9D3D9` los saqué de la pantalla Landing.
+
+**Decisiones a tener en cuenta**
+- **Flexbox ya presente:** he usado `display: flex` en cabecera, hero, tarjetas y pie para que se parezca al prototipo. Las variables `:root`, las media queries y las transiciones quedan para la Fase 3.
+- **Sin estilos en línea en la copia:** en `fase2-interna/index.html` los estilos en línea también están movidos al `<style>`, aunque el enunciado habla de "en línea e internos" en esa carpeta. Si tu profe quiere ver los dos tipos juntos, dímelo y dejo unos cuantos `style=""` en esa copia.
+- **Rutas de la copia:** las rutas llevan `../`, porque la carpeta es un nivel más profunda.
+- **CTA con imagen de fondo:** ya lleva `background-image` (`cta-fondo.jpg`, `cover`... en este caso con tamaño fijo a la derecha) y sin repetición; sigue siendo un bloque de color provisional.
+
+**Texto para la hoja de entrega (Fase 2)**
+
+"En la Fase 2 he trasladado los estilos en línea de index.html a un bloque `<style>` dentro del `<head>`. Importo las tipografías de la guía de estilo (Goldman para títulos y Oxanium para texto) con Google Fonts y las aplico con `sans-serif` como familia de reserva. Empiezo con un reinicio de estilos (`box-sizing: border-box`, margen y relleno a 0) para que el tamaño de las cajas sea predecible.
+
+He usado distintos tipos de selector:
+- **Etiqueta:** `body`, `h1`, `h2`, `h3`, `p`, `a`, `img` y `ul`, para dar el aspecto base a cada elemento.
+- **Agrupado:** `h1, h2, h3`, que comparten tipografía y color.
+- **Clase:** `.btn` con variantes (`.btn--donar`, `.btn--primario`, `.btn--secundario`) y `.tarjeta`, reutilizables en varios elementos.
+- **Id:** `#hero`, `#cabecera` y `#pie`, para elementos únicos de la página.
+- **Descendientes e hijos directos:** `#hero h1`, `.pie__columna li`, `.menu__lista > li` y `.tarjeta__cuerpo > *`.
+- **Pseudoclases:** `:hover` en botones, enlaces y tarjetas; `:first-child` para alinear el primer enlace del menú con el logotipo; `:last-child` para quitar el margen inferior del último elemento de cada tarjeta y de cada columna del pie.
+
+Por tipo de elemento he aplicado: tipografía (familia, tamaño, peso e interlineado), color y fondo (paleta de la guía y `background-image` en la llamada a la acción), modelo de caja (`margin`, `padding`, `border`, `border-radius`), `display` (`flex`, `block`, `inline-block`), listas (`list-style: none`) e imágenes (`max-width`, `object-fit: cover`). También he dejado una regla para que los elementos de formulario hereden la tipografía.
+
+Los estilos internos separan la presentación del contenido y permiten reutilizar reglas dentro de la página, pero solo valen para ese archivo: para las otras cuatro páginas tendría que copiar el bloque, y por eso en la Fase 3 pasaré todo a una hoja externa."
+
+**Capturas mínimas**
+1. `index.html` en el navegador completo, junto a la pantalla Landing de Penpot, para la comparación y las desviaciones.
+2. El bloque `<style>` en el editor, con los selectores de clase, id y agrupado visibles.
+3. Las DevTools con un `:hover` forzado (por ejemplo en `.btn--donar` o en una tarjeta), con el panel de estilos abierto.
+4. La carpeta `fase2-interna/` en el explorador de archivos.
+
+**Desviaciones respecto al prototipo**
+Son las mismas de la Fase 1 y dos más:
+- Sin los iconos de las flechas de los botones; entran en la Fase 3.
+- Imágenes provisionales en bloques de color.
+
+¿Sigo con la Fase 3?
