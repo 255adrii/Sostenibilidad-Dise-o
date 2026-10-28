@@ -5,81 +5,587 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ONG que desarrolla y comparte software sostenible, abierto y accesible para organizaciones con impacto social.">
   <title>Inicio · Software Sostenible ONG</title>
+  <!-- Google Fonts: Goldman (títulos) y Oxanium (texto) con sans-serif como reserva -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Oxanium:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FASE 2: hoja de estilos interna -->
+  <style>
+    /* =====================================================
+       FASE 2 · Hoja de estilos interna (index.html)
+       Fuente de valores: guía de estilo de la UT1 (Penpot)
+       Paleta: #05668D primario · #028090 secundario · #00A896 acento
+               #02C39A destacado · #EAF6F5 tinte · #D3ECEA tinte fuerte
+               #B9D3D9 borde suave · #3D4A52 texto suave · #B00020 error
+       ===================================================== */
+
+    /* ---------- 1. Reinicio de estilos ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ---------- 2. Selectores de etiqueta ---------- */
+    body {
+      font-family: 'Oxanium', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.625;
+      color: #000000;
+      background-color: #FFFFFF;
+    }
+
+    /* Selector agrupado: los tres títulos comparten tipografía */
+    h1, h2, h3 {
+      font-family: 'Goldman', sans-serif;
+      font-weight: 400;
+      color: #05668D;
+    }
+
+    h1 {
+      font-size: 3.5rem;        /* 56 px */
+      font-weight: 700;
+      line-height: 1.1428;
+    }
+
+    h2 {
+      font-size: 2.5rem;        /* 40 px */
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 1.375rem;      /* 22 px */
+      line-height: 1.3636;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #05668D;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Elementos de formulario: heredan la tipografía del sitio */
+    input, button, textarea, select {
+      font: inherit;
+      color: inherit;
+    }
+
+    /* Énfasis de la Fase 1 */
+    strong {
+      font-weight: 700;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    mark {
+      background-color: #02C39A;
+      color: #000000;
+      padding: 0 0.25rem;
+      border-radius: 2px;
+    }
+
+    /* ---------- 3. Selectores de clase ---------- */
+    /* Accesibilidad: enlace para saltar al contenido y texto solo para lectores */
+    .saltar {
+      position: absolute;
+      left: -999px;
+      background-color: #05668D;
+      color: #FFFFFF;
+      padding: 0.5rem 1rem;
+    }
+
+    .saltar:focus {
+      left: 0;
+      top: 0;
+      z-index: 10;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    /* Botones: base y variantes */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn--donar {
+      background-color: #02C39A;
+      color: #000000;
+    }
+
+    .btn--donar:hover {
+      background-color: #00A896;
+    }
+
+    .btn--primario {
+      background-color: #05668D;
+      color: #FFFFFF;
+    }
+
+    .btn--primario:hover {
+      background-color: #028090;
+    }
+
+    .btn--secundario {
+      background-color: #FFFFFF;
+      border-color: #05668D;
+      color: #05668D;
+    }
+
+    .btn--secundario:hover {
+      background-color: #EAF6F5;
+    }
+
+    .btn:focus-visible,
+    .enlace:focus-visible,
+    .menu__enlace:focus-visible {
+      outline: 3px solid #00A896;
+      outline-offset: 2px;
+    }
+
+    /* Texto de apoyo */
+    .antetitulo,
+    .hero__antetitulo {
+      font-size: 0.875rem;      /* 14 px */
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .antetitulo {
+      color: #028090;
+    }
+
+    .enlace {
+      color: #05668D;
+      font-weight: 600;
+    }
+
+    .enlace:hover {
+      text-decoration: underline;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background-color: #D3ECEA;
+      color: #000000;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0 0.5rem;
+      border-radius: 2px;
+    }
+
+    /* ---------- 4. Cabecera y menú (id y descendientes) ---------- */
+    #cabecera {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 7rem 0;
+      background-color: #FFFFFF;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #000000;
+    }
+
+    .logo__texto {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+      font-size: 0.8125rem;
+      letter-spacing: 0.08em;
+    }
+
+    .logo__texto strong {
+      font-family: 'Goldman', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+
+    .menu {
+      flex-basis: 100%;
+      margin-top: 1.25rem;
+      border-top: 1px solid #B9D3D9;
+      border-bottom: 1px solid #B9D3D9;
+    }
+
+    /* Hijos directos: lista horizontal del menú */
+    .menu__lista {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .menu__lista > li {
+      display: block;
+    }
+
+    /* Pseudoclase :first-child: el primer enlace se alinea con el logotipo */
+    .menu__lista > li:first-child .menu__enlace {
+      padding-left: 0;
+    }
+
+    .menu__enlace {
+      display: block;
+      padding: 0.625rem 0.75rem 0.375rem;
+      color: #000000;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-bottom: 3px solid transparent;
+    }
+
+    .menu__enlace:hover,
+    .menu__enlace[aria-current="page"] {
+      color: #05668D;
+      border-bottom-color: #05668D;
+    }
+
+    /* ---------- 5. Hero (id) ---------- */
+    #hero {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      padding: 6rem 7rem;
+      background-color: #05668D;
+      color: #FFFFFF;
+    }
+
+    #hero h1 {
+      color: #FFFFFF;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__texto {
+      flex: 1;
+    }
+
+    .hero__antetitulo {
+      color: #FFFFFF;
+    }
+
+    .hero__subtitulo {
+      max-width: 35rem;
+      font-size: 1.125rem;      /* Large Body 18 px */
+      line-height: 1.5555;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* En el hero el botón principal es verde y el secundario blanco */
+    #hero .btn--secundario {
+      background-color: #FFFFFF;
+    }
+
+    .hero__imagen {
+      width: 30rem;
+      height: 22.5rem;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* ---------- 6. Secciones generales ---------- */
+    .seccion {
+      padding: 6rem 7rem;
+    }
+
+    .seccion--quienes {
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+    }
+
+    .seccion__texto {
+      flex: 1;
+    }
+
+    .seccion__texto h2 {
+      margin-bottom: 1.25rem;
+    }
+
+    .seccion__imagen {
+      width: 36rem;
+      height: 24rem;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* ---------- 7. Últimos artículos y tarjetas ---------- */
+    .seccion--articulos {
+      background-color: #EAF6F5;
+    }
+
+    .seccion__cabecera {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+
+    .tarjetas {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .tarjeta {
+      flex: 1;
+      background-color: #FFFFFF;
+      border: 1px solid #B9D3D9;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .tarjeta__imagen {
+      width: 100%;
+      height: 12.5rem;          /* 200 px */
+      object-fit: cover;
+    }
+
+    .tarjeta__cuerpo {
+      padding: 1.5rem;
+    }
+
+    .tarjeta__cuerpo > * {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Pseudoclase :last-child: el último elemento no deja hueco debajo */
+    .tarjeta__cuerpo > :last-child {
+      margin-bottom: 0;
+    }
+
+    .tarjeta__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: #3D4A52;
+    }
+
+    .tarjeta__titulo {
+      color: #000000;
+    }
+
+    .tarjeta:hover {
+      border-color: #05668D;
+    }
+
+    /* ---------- 8. Llamada a la acción (CTA) ---------- */
+    .cta {
+      margin: 6rem 7rem;
+      border: 1px solid #B9D3D9;
+      border-radius: 8px;
+      background: #FFFFFF url('../img/cta-fondo.jpg') right center / 30rem 100% no-repeat;
+    }
+
+    .cta__texto {
+      max-width: 42rem;
+      padding: 3.5rem;
+    }
+
+    .cta__texto h2 {
+      margin-bottom: 1rem;
+    }
+
+    .cta__texto p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---------- 9. Pie de página ---------- */
+    #pie {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      padding: 4rem 7rem 2rem;
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+
+    #pie a {
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+
+    #pie a:hover {
+      color: #02C39A;
+    }
+
+    .pie .logo,
+    #pie .logo {
+      color: #FFFFFF;
+    }
+
+    .pie__principal {
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .pie__marca {
+      max-width: 20rem;
+    }
+
+    .pie__marca p {
+      margin-top: 1rem;
+    }
+
+    .pie__columnas {
+      display: flex;
+      gap: 4rem;
+    }
+
+    .pie__titulo {
+      font-family: 'Oxanium', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Descendientes: elementos de lista dentro de las columnas del pie */
+    .pie__columna li {
+      margin-bottom: 0.75rem;
+    }
+
+    .pie__columna li:last-child {
+      margin-bottom: 0;
+    }
+
+    .pie__legal {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 2rem;
+      border-top: 1px solid #3D4A52;
+      font-size: 0.875rem;
+    }
+
+    .pie__legal p {
+      margin-bottom: 0;
+    }
+  </style>
 </head>
-<body style="font-family: 'Oxanium', sans-serif; color: #000000; margin: 0;">
+<body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
 
   <header class="cabecera" id="cabecera">
-    <a class="logo" href="index.html" title="Ir al inicio">
-      <img class="logo__marca" src="img/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+    <a class="logo" href="../index.html" title="Ir al inicio">
+      <img class="logo__marca" src="../img/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
       <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
     </a>
-    <a class="btn btn--donar" href="formulario.html">Donar</a>
+    <a class="btn btn--donar" href="../formulario.html">Donar</a>
     <nav class="menu" aria-label="Menú principal">
       <ul class="menu__lista">
-        <li><a class="menu__enlace" href="index.html#quienes-somos">Quiénes somos</a></li>
-        <li><a class="menu__enlace" href="index.html" aria-current="page">Proyectos</a></li>
-        <li><a class="menu__enlace" href="listado.html">Artículos</a></li>
-        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+        <li><a class="menu__enlace" href="../index.html#quienes-somos">Quiénes somos</a></li>
+        <li><a class="menu__enlace" href="../index.html" aria-current="page">Proyectos</a></li>
+        <li><a class="menu__enlace" href="../listado.html">Artículos</a></li>
+        <li><a class="menu__enlace" href="../contacto.html">Contacto</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="contenido">
-    <section class="hero" id="hero" aria-labelledby="hero-titulo" style="background-color: #05668D; padding: 4rem 7rem;">
+    <section class="hero" id="hero" aria-labelledby="hero-titulo">
       <div class="hero__texto">
-        <p class="hero__antetitulo" style="color: #FFFFFF; letter-spacing: 0.1em;">SOFTWARE LIBRE · IMPACTO SOCIAL</p>
-        <h1 id="hero-titulo" style="font-family: 'Goldman', sans-serif; font-size: 3.5rem; color: #FFFFFF;">Software sostenible para organizaciones con <mark>impacto</mark></h1>
-        <p class="hero__subtitulo" style="color: #FFFFFF; font-size: 1.125rem; margin-bottom: 1.5rem;">Desarrollamos y compartimos herramientas <strong>abiertas</strong>, <em>eficientes</em> y accesibles para que la tecnología reduzca su huella.</p>
+        <p class="hero__antetitulo">SOFTWARE LIBRE · IMPACTO SOCIAL</p>
+        <h1 id="hero-titulo">Software sostenible para organizaciones con <mark>impacto</mark></h1>
+        <p class="hero__subtitulo">Desarrollamos y compartimos herramientas <strong>abiertas</strong>, <em>eficientes</em> y accesibles para que la tecnología reduzca su huella.</p>
         <div class="hero__botones">
-          <a class="btn btn--donar" href="formulario.html" title="Ir a la página de donaciones" style="display: inline-block; background-color: #02C39A; color: #000000; padding: 0.75rem 1.5rem; border-radius: 4px; font-weight: 700; text-decoration: none; text-transform: uppercase;">Dona ahora</a>
-          <a class="btn btn--secundario" href="listado.html">Conoce el proyecto</a>
+          <a class="btn btn--donar" href="../formulario.html" title="Ir a la página de donaciones">Dona ahora</a>
+          <a class="btn btn--secundario" href="../listado.html">Conoce el proyecto</a>
         </div>
       </div>
-      <img class="hero__imagen" src="img/hero.jpg" alt="" width="1200" height="800">
+      <img class="hero__imagen" src="../img/hero.jpg" alt="" width="1200" height="800">
     </section>
 
     <section class="seccion seccion--quienes" id="quienes-somos" aria-labelledby="quienes-titulo">
       <div class="seccion__texto">
         <p class="antetitulo">POR QUÉ IMPORTA</p>
-        <h2 id="quienes-titulo" style="font-family: 'Goldman', sans-serif; color: #05668D;">Por un software mejor</h2>
+        <h2 id="quienes-titulo">Por un software mejor</h2>
         <p>Resumen de nuestra organización: trabajamos con equipos y comunidades para diseñar aplicaciones que consumen menos energía, respetan a las personas y están al alcance de todas ellas.</p>
-        <a class="btn btn--primario" href="listado.html">Ver más</a>
+        <a class="btn btn--primario" href="../listado.html">Ver más</a>
       </div>
-      <img class="seccion__imagen" src="img/software-mejor.jpg" alt="" width="1152" height="768" loading="lazy">
+      <img class="seccion__imagen" src="../img/software-mejor.jpg" alt="" width="1152" height="768" loading="lazy">
     </section>
 
-    <section class="seccion seccion--articulos" id="ultimos-articulos" aria-labelledby="articulos-titulo" style="background-color: #EAF6F5; padding: 3rem 7rem;">
+    <section class="seccion seccion--articulos" id="ultimos-articulos" aria-labelledby="articulos-titulo">
       <div class="seccion__cabecera">
         <h2 id="articulos-titulo">Últimos artículos</h2>
-        <a class="btn btn--secundario" href="listado.html">Ver todos</a>
+        <a class="btn btn--secundario" href="../listado.html">Ver todos</a>
       </div>
       <div class="tarjetas">
         <article class="tarjeta">
-          <img class="tarjeta__imagen" src="img/art-1.jpg" alt="" width="800" height="500" loading="lazy">
+          <img class="tarjeta__imagen" src="../img/art-1.jpg" alt="" width="800" height="500" loading="lazy">
           <div class="tarjeta__cuerpo">
             <p class="tarjeta__meta"><span class="etiqueta">Buenas prácticas</span> <time datetime="2026-03-12">12 mar 2026</time></p>
             <h3 class="tarjeta__titulo">Cómo reducir la huella de carbono de tu web</h3>
             <p>Cinco cambios sencillos que reducen el consumo de energía sin perder calidad.</p>
-            <a class="enlace" href="detalle.html">Seguir leyendo<span class="sr-only">: Cómo reducir la huella de carbono de tu web</span></a>
+            <a class="enlace" href="../detalle.html">Seguir leyendo<span class="sr-only">: Cómo reducir la huella de carbono de tu web</span></a>
           </div>
         </article>
         <article class="tarjeta">
-          <img class="tarjeta__imagen" src="img/art-2.jpg" alt="" width="800" height="500" loading="lazy">
+          <img class="tarjeta__imagen" src="../img/art-2.jpg" alt="" width="800" height="500" loading="lazy">
           <div class="tarjeta__cuerpo">
             <p class="tarjeta__meta"><span class="etiqueta">Accesibilidad</span> <time datetime="2026-03-03">03 mar 2026</time></p>
             <h3 class="tarjeta__titulo">Guía de accesibilidad para equipos pequeños</h3>
             <p>Una lista de comprobación para que tu sitio sea usable por todas las personas.</p>
-            <a class="enlace" href="detalle.html">Seguir leyendo<span class="sr-only">: Guía de accesibilidad para equipos pequeños</span></a>
+            <a class="enlace" href="../detalle.html">Seguir leyendo<span class="sr-only">: Guía de accesibilidad para equipos pequeños</span></a>
           </div>
         </article>
         <article class="tarjeta">
-          <img class="tarjeta__imagen" src="img/art-3.jpg" alt="" width="800" height="500" loading="lazy">
+          <img class="tarjeta__imagen" src="../img/art-3.jpg" alt="" width="800" height="500" loading="lazy">
           <div class="tarjeta__cuerpo">
             <p class="tarjeta__meta"><span class="etiqueta">Comunidad</span> <time datetime="2026-02-21">21 feb 2026</time></p>
             <h3 class="tarjeta__titulo">Software libre en el tercer sector</h3>
             <p>Qué herramientas abiertas están usando otras organizaciones y por qué.</p>
-            <a class="enlace" href="detalle.html">Seguir leyendo<span class="sr-only">: Software libre en el tercer sector</span></a>
+            <a class="enlace" href="../detalle.html">Seguir leyendo<span class="sr-only">: Software libre en el tercer sector</span></a>
           </div>
         </article>
       </div>
@@ -89,16 +595,16 @@
       <div class="cta__texto">
         <h2 id="donaciones-titulo">Donaciones</h2>
         <p>Tu aportación permite mantener herramientas abiertas y ofrecer formación gratuita a organizaciones sociales.</p>
-        <a class="btn btn--donar" href="formulario.html">Hacer una donación</a>
+        <a class="btn btn--donar" href="../formulario.html">Hacer una donación</a>
       </div>
     </section>
   </main>
 
-  <footer class="pie" id="pie" style="background-color: #000000; color: #FFFFFF; padding: 4rem 7rem 2rem;">
+  <footer class="pie" id="pie">
     <div class="pie__principal">
       <div class="pie__marca">
-        <a class="logo" href="index.html" style="color: #FFFFFF;" title="Ir al inicio">
-          <img class="logo__marca" src="img/logo-claro.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+        <a class="logo" href="../index.html" title="Ir al inicio">
+          <img class="logo__marca" src="../img/logo-claro.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
           <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
         </a>
         <p>Tecnología abierta y eficiente para organizaciones con impacto.</p>
@@ -107,25 +613,25 @@
         <div class="pie__columna">
           <h2 class="pie__titulo">Organización</h2>
           <ul>
-            <li><a style="color: #FFFFFF;" href="index.html#quienes-somos">Quiénes somos</a></li>
-            <li><a style="color: #FFFFFF;" href="index.html#quienes-somos">Equipo</a></li>
-            <li><a style="color: #FFFFFF;" href="index.html#quienes-somos">Transparencia</a></li>
+            <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
+            <li><a href="../index.html#quienes-somos">Equipo</a></li>
+            <li><a href="../index.html#quienes-somos">Transparencia</a></li>
           </ul>
         </div>
         <div class="pie__columna">
           <h2 class="pie__titulo">Recursos</h2>
           <ul>
-            <li><a style="color: #FFFFFF;" href="listado.html">Artículos</a></li>
-            <li><a style="color: #FFFFFF;" href="listado.html">Guías</a></li>
-            <li><a style="color: #FFFFFF;" href="listado.html">Herramientas</a></li>
+            <li><a href="../listado.html">Artículos</a></li>
+            <li><a href="../listado.html">Guías</a></li>
+            <li><a href="../listado.html">Herramientas</a></li>
           </ul>
         </div>
         <div class="pie__columna">
           <h2 class="pie__titulo">Participa</h2>
           <ul>
-            <li><a style="color: #FFFFFF;" href="formulario.html">Donar</a></li>
-            <li><a style="color: #FFFFFF;" href="contacto.html">Voluntariado</a></li>
-            <li><a style="color: #FFFFFF;" href="contacto.html">Contacto</a></li>
+            <li><a href="../formulario.html">Donar</a></li>
+            <li><a href="../contacto.html">Voluntariado</a></li>
+            <li><a href="../contacto.html">Contacto</a></li>
           </ul>
         </div>
       </div>
