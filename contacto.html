@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacta con Software Sostenible ONG: formulario, dirección, teléfono y horario de atención.">
+  <title>Contacto · Software Sostenible ONG</title>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera" id="cabecera">
+    <a class="logo" href="index.html" title="Ir al inicio">
+      <img class="logo__marca" src="img/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+      <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
+    </a>
+    <a class="btn btn--donar" href="formulario.html">Donar</a>
+    <nav class="menu" aria-label="Menú principal">
+      <ul class="menu__lista">
+        <li><a class="menu__enlace" href="index.html#quienes-somos">Quiénes somos</a></li>
+        <li><a class="menu__enlace" href="index.html">Proyectos</a></li>
+        <li><a class="menu__enlace" href="listado.html">Artículos</a></li>
+        <li><a class="menu__enlace" href="contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero hero--claro" id="hero" aria-labelledby="hero-titulo">
+      <p class="antetitulo">HABLEMOS</p>
+      <h1 id="hero-titulo">Contacto</h1>
+      <p>Cuéntanos qué necesitas y te responderemos en un plazo de dos días laborables.</p>
+    </section>
+
+    <div class="contacto" id="contacto-contenido">
+      <section class="contacto__formulario" aria-labelledby="escribenos-titulo">
+        <h2 id="escribenos-titulo">Escríbenos</h2>
+        <form class="formulario" id="form-contacto" action="#" method="post">
+          <div class="campo">
+            <label for="c-nombre">Nombre</label>
+            <input type="text" id="c-nombre" name="nombre" placeholder="Nombre y apellidos" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="c-email">Correo electrónico</label>
+            <input type="email" id="c-email" name="email" placeholder="nombre@ejemplo.org" autocomplete="email" required>
+          </div>
+          <div class="campo">
+            <label for="c-asunto">Asunto</label>
+            <input type="text" id="c-asunto" name="asunto" placeholder="¿Sobre qué quieres hablar?">
+          </div>
+          <div class="campo">
+            <label for="c-mensaje">Mensaje</label>
+            <textarea id="c-mensaje" name="mensaje" rows="6" placeholder="Escribe tu mensaje" required></textarea>
+          </div>
+          <div class="campo campo--casilla">
+            <input type="checkbox" id="c-privacidad" name="privacidad" required>
+            <label for="c-privacidad">Acepto la política de privacidad</label>
+          </div>
+          <button class="btn btn--primario" type="submit">Enviar mensaje</button>
+        </form>
+      </section>
+
+      <aside class="contacto__datos" aria-labelledby="datos-titulo">
+        <h2 id="datos-titulo">Datos de contacto</h2>
+        <address class="datos">
+          <dl>
+            <dt>Dirección</dt>
+            <dd>Calle Ejemplo 12, 28001 Madrid</dd>
+            <dt>Teléfono</dt>
+            <dd><a href="tel:+34600000000">+34 600 000 000</a></dd>
+            <dt>Correo</dt>
+            <dd><a href="mailto:hola@softwaresostenible.org">hola@softwaresostenible.org</a></dd>
+            <dt>Horario</dt>
+            <dd>Lunes a viernes, 9:00 – 17:00</dd>
+            <dt>Redes</dt>
+            <dd>LinkedIn · Mastodon · GitHub</dd>
+          </dl>
+        </address>
+      </aside>
+
+      <figure class="contacto__mapa">
+        <img src="img/mapa.jpg" alt="Mapa con la ubicación de la sede en Calle Ejemplo 12, Madrid" width="944" height="520" loading="lazy">
+      </figure>
+    </div>
+
+    <aside class="banner" aria-labelledby="banner-titulo">
+      <div class="banner__texto">
+        <h2 id="banner-titulo">¿Quieres ayudar?</h2>
+        <p>Tu aportación financia herramientas abiertas y formación para organizaciones sociales.</p>
+      </div>
+      <a class="btn btn--donar" href="formulario.html">Dona ahora</a>
+    </aside>
+  </main>
+
+  <footer class="pie" id="pie">
+    <div class="pie__principal">
+      <div class="pie__marca">
+        <a class="logo" href="index.html" title="Ir al inicio">
+          <img class="logo__marca" src="img/logo-claro.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+          <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
+        </a>
+        <p>Tecnología abierta y eficiente para organizaciones con impacto.</p>
+      </div>
+      <div class="pie__columnas">
+        <div class="pie__columna">
+          <h2 class="pie__titulo">Organización</h2>
+          <ul>
+            <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
+            <li><a href="index.html#quienes-somos">Equipo</a></li>
+            <li><a href="index.html#quienes-somos">Transparencia</a></li>
+          </ul>
+        </div>
+        <div class="pie__columna">
+          <h2 class="pie__titulo">Recursos</h2>
+          <ul>
+            <li><a href="listado.html">Artículos</a></li>
+            <li><a href="listado.html">Guías</a></li>
+            <li><a href="listado.html">Herramientas</a></li>
+          </ul>
+        </div>
+        <div class="pie__columna">
+          <h2 class="pie__titulo">Participa</h2>
+          <ul>
+            <li><a href="formulario.html">Donar</a></li>
+            <li><a href="contacto.html">Voluntariado</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pie__legal">
+      <p><small>© 2026 Software Sostenible ONG. Todos los derechos reservados.</small></p>
+      <p><small>Política de privacidad · Aviso legal · Accesibilidad</small></p>
+    </div>
+  </footer>
+</body>
+</html>

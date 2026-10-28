@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formulario de donación única o mensual para apoyar el software abierto y sostenible.">
+  <title>Haz una donación · Software Sostenible ONG</title>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera" id="cabecera">
+    <a class="logo" href="index.html" title="Ir al inicio">
+      <img class="logo__marca" src="img/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+      <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
+    </a>
+    <a class="btn btn--donar" href="formulario.html" aria-current="page">Donar</a>
+    <nav class="menu" aria-label="Menú principal">
+      <ul class="menu__lista">
+        <li><a class="menu__enlace" href="index.html#quienes-somos">Quiénes somos</a></li>
+        <li><a class="menu__enlace" href="index.html">Proyectos</a></li>
+        <li><a class="menu__enlace" href="listado.html">Artículos</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="donacion" id="donacion" aria-labelledby="donacion-titulo">
+      <div class="donacion__info">
+        <p class="antetitulo">DONACIONES</p>
+        <h1 id="donacion-titulo">Haz una donación</h1>
+        <p class="donacion__intro">Cada aportación nos ayuda a mantener herramientas abiertas y a acompañar a organizaciones sociales en su transición hacia un software más eficiente.</p>
+        <h2 class="donacion__subtitulo">Qué financia tu donación</h2>
+        <ul class="lista-puntos">
+          <li>Mantener herramientas abiertas y gratuitas</li>
+          <li>Formación para organizaciones sociales</li>
+          <li>Auditorías de accesibilidad y consumo energético</li>
+        </ul>
+        <p><small>Publicamos cada año cómo se utilizan los fondos.</small></p>
+      </div>
+
+      <form class="formulario" id="form-donacion" action="#" method="post">
+        <h2 class="formulario__titulo">Tu donación</h2>
+
+        <fieldset class="formulario__grupo">
+          <legend>Frecuencia</legend>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="frecuencia" value="unica"> Única</label>
+            <label class="opcion"><input type="radio" name="frecuencia" value="mensual" checked> Mensual</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="formulario__grupo">
+          <legend>Importe</legend>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="importe" value="10"> 10 €</label>
+            <label class="opcion"><input type="radio" name="importe" value="25" checked> 25 €</label>
+            <label class="opcion"><input type="radio" name="importe" value="50"> 50 €</label>
+            <label class="opcion"><input type="radio" name="importe" value="100"> 100 €</label>
+            <label class="opcion"><input type="radio" name="importe" value="otro"> Otra</label>
+          </div>
+        </fieldset>
+
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos" autocomplete="name" required>
+        </div>
+        <div class="campo">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="nombre@ejemplo.org" autocomplete="email" required>
+        </div>
+
+        <div class="campo campo--casilla">
+          <input type="checkbox" id="privacidad" name="privacidad" required>
+          <label for="privacidad">Acepto la política de privacidad</label>
+        </div>
+
+        <button class="btn btn--donar" type="submit">Donar 25 € al mes</button>
+        <p class="formulario__nota"><small>Pago seguro. Puedes cancelar tu donación mensual cuando quieras.</small></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="pie" id="pie">
+    <div class="pie__principal">
+      <div class="pie__marca">
+        <a class="logo" href="index.html" title="Ir al inicio">
+          <img class="logo__marca" src="img/logo-claro.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+          <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
+        </a>
+        <p>Tecnología abierta y eficiente para organizaciones con impacto.</p>
+      </div>
+      <div class="pie__columnas">
+        <div class="pie__columna">
+          <h2 class="pie__titulo">Organización</h2>
+          <ul>
+            <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
+            <li><a href="index.html#quienes-somos">Equipo</a></li>
+            <li><a href="index.html#quienes-somos">Transparencia</a></li>
+          </ul>
+        </div>
+        <div class="pie__columna">
+          <h2 class="pie__titulo">Recursos</h2>
+          <ul>
+            <li><a href="listado.html">Artículos</a></li>
+            <li><a href="listado.html">Guías</a></li>
+            <li><a href="listado.html">Herramientas</a></li>
+          </ul>
+        </div>
+        <div class="pie__columna">
+          <h2 class="pie__titulo">Participa</h2>
+          <ul>
+            <li><a href="formulario.html">Donar</a></li>
+            <li><a href="contacto.html">Voluntariado</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pie__legal">
+      <p><small>© 2026 Software Sostenible ONG. Todos los derechos reservados.</small></p>
+      <p><small>Política de privacidad · Aviso legal · Accesibilidad</small></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Listado de artículos sobre software sostenible, accesibilidad y comunidad abierta.">
+  <title>Artículos · Software Sostenible ONG</title>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera" id="cabecera">
+    <a class="logo" href="index.html" title="Ir al inicio">
+      <img class="logo__marca" src="img/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+      <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
+    </a>
+    <a class="btn btn--donar" href="formulario.html">Donar</a>
+    <nav class="menu" aria-label="Menú principal">
+      <ul class="menu__lista">
+        <li><a class="menu__enlace" href="index.html#quienes-somos">Quiénes somos</a></li>
+        <li><a class="menu__enlace" href="index.html">Proyectos</a></li>
+        <li><a class="menu__enlace" href="listado.html" aria-current="page">Artículos</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero hero--claro" id="hero" aria-labelledby="hero-titulo">
+      <p class="antetitulo">BLOG</p>
+      <h1 id="hero-titulo">Mantente informado</h1>
+      <p>Guías, noticias y casos prácticos sobre software sostenible, accesible y abierto para organizaciones sociales.</p>
+    </section>
+
+    <section class="filtros" id="filtros" aria-label="Filtros y búsqueda">
+      <div class="filtros__categorias">
+        <h2 class="filtros__titulo">Filtrar por categoría</h2>
+        <ul class="chips">
+          <li><a class="chip" href="listado.html" aria-current="true">Todos</a></li>
+          <li><a class="chip" href="listado.html">Buenas prácticas</a></li>
+          <li><a class="chip" href="listado.html">Accesibilidad</a></li>
+          <li><a class="chip" href="listado.html">Comunidad</a></li>
+          <li><a class="chip" href="listado.html">Herramientas</a></li>
+        </ul>
+      </div>
+      <form class="buscador" role="search" action="listado.html" method="get">
+        <label for="buscar">Buscar</label>
+        <input type="search" id="buscar" name="q" placeholder="Buscar artículos" autocomplete="off">
+      </form>
+    </section>
+
+    <section class="listado" id="listado" aria-labelledby="listado-titulo">
+      <h2 id="listado-titulo" class="sr-only">Listado de artículos</h2>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <img class="tarjeta__imagen" src="img/art-1.jpg" alt="" width="800" height="500" loading="lazy">
+          <div class="tarjeta__cuerpo">
+            <p class="tarjeta__meta"><span class="etiqueta">Buenas prácticas</span> <time datetime="2026-03-12">12 mar 2026</time></p>
+            <h3 class="tarjeta__titulo">Cómo reducir la huella de carbono de tu web</h3>
+            <p>Cinco cambios sencillos que reducen el consumo de energía sin perder calidad.</p>
+            <a class="enlace" href="detalle.html">Seguir leyendo<span class="sr-only">: Cómo reducir la huella de carbono de tu web</span></a>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <img class="tarjeta__imagen" src="img/art-2.jpg" alt="" width="800" height="500" loading="lazy">
+          <div class="tarjeta__cuerpo">
+            <p class="tarjeta__meta"><span class="etiqueta">Accesibilidad</span> <time datetime="2026-03-03">03 mar 2026</time></p>
+            <h3 class="tarjeta__titulo">Guía de accesibilidad para equipos pequeños</h3>
+            <p>Una lista de comprobación para que tu sitio sea usable por todas las personas.</p>
+            <a class="enlace" href="detalle.html">Seguir leyendo<span class="sr-only">: Guía de accesibilidad para equipos pequeños</span></a>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <img class="tarjeta__imagen" src="img/art-3.jpg" alt="" width="800" height="500" loading="lazy">
+          <div class="tarjeta__cuerpo">
+            <p class="tarjeta__meta"><span class="etiqueta">Comunidad</span> <time datetime="2026-02-21">21 feb 2026</time></p>
+            <h3 class="tarjeta__titulo">Software libre en el tercer sector</h3>
+            <p>Qué herramientas abiertas están usando otras organizaciones y por qué.</p>
+            <a class="enlace" href="detalle.html">Seguir leyendo<span class="sr-only">: Software libre en el tercer sector</span></a>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <img class="tarjeta__imagen" src="img/art-4.jpg" alt="" width="800" height="500" loading="lazy">
+          <div class="tarjeta__cuerpo">
+            <p class="tarjeta__meta"><span class="etiqueta">Herramientas</span> <time datetime="2026-02-10">10 feb 2026</time></p>
+            <h3 class="tarjeta__titulo">Hosting verde: qué mirar antes de elegir</h3>
+            <p>Criterios claros para comparar proveedores con menor impacto ambiental.</p>
+            <a class="enlace" href="detalle.html">Seguir leyendo<span class="sr-only">: Hosting verde: qué mirar antes de elegir</span></a>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <img class="tarjeta__imagen" src="img/art-5.jpg" alt="" width="800" height="500" loading="lazy">
+          <div class="tarjeta__cuerpo">
+            <p class="tarjeta__meta"><span class="etiqueta">Buenas prácticas</span> <time datetime="2026-01-28">28 ene 2026</time></p>
+            <h3 class="tarjeta__titulo">Rendimiento web y sostenibilidad</h3>
+            <p>Por qué una web rápida también es una web más ligera para el planeta.</p>
+            <a class="enlace" href="detalle.html">Seguir leyendo<span class="sr-only">: Rendimiento web y sostenibilidad</span></a>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <img class="tarjeta__imagen" src="img/art-6.jpg" alt="" width="800" height="500" loading="lazy">
+          <div class="tarjeta__cuerpo">
+            <p class="tarjeta__meta"><span class="etiqueta">Comunidad</span> <time datetime="2026-01-15">15 ene 2026</time></p>
+            <h3 class="tarjeta__titulo">Cómo documentar un proyecto abierto</h3>
+            <p>Plantillas y hábitos para que otras personas puedan contribuir.</p>
+            <a class="enlace" href="detalle.html">Seguir leyendo<span class="sr-only">: Cómo documentar un proyecto abierto</span></a>
+          </div>
+        </article>
+      </div>
+      <p class="listado__mas"><a class="btn btn--secundario" href="listado.html">Siguientes artículos</a></p>
+    </section>
+
+    <aside class="banner" aria-labelledby="banner-titulo">
+      <div class="banner__texto">
+        <h2 id="banner-titulo">¿Quieres ayudar?</h2>
+        <p>Tu aportación financia herramientas abiertas y formación para organizaciones sociales.</p>
+      </div>
+      <a class="btn btn--donar" href="formulario.html">Dona ahora</a>
+    </aside>
+  </main>
+
+  <footer class="pie" id="pie">
+    <div class="pie__principal">
+      <div class="pie__marca">
+        <a class="logo" href="index.html" title="Ir al inicio">
+          <img class="logo__marca" src="img/logo-claro.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+          <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
+        </a>
+        <p>Tecnología abierta y eficiente para organizaciones con impacto.</p>
+      </div>
+      <div class="pie__columnas">
+        <div class="pie__columna">
+          <h2 class="pie__titulo">Organización</h2>
+          <ul>
+            <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
+            <li><a href="index.html#quienes-somos">Equipo</a></li>
+            <li><a href="index.html#quienes-somos">Transparencia</a></li>
+          </ul>
+        </div>
+        <div class="pie__columna">
+          <h2 class="pie__titulo">Recursos</h2>
+          <ul>
+            <li><a href="listado.html">Artículos</a></li>
+            <li><a href="listado.html">Guías</a></li>
+            <li><a href="listado.html">Herramientas</a></li>
+          </ul>
+        </div>
+        <div class="pie__columna">
+          <h2 class="pie__titulo">Participa</h2>
+          <ul>
+            <li><a href="formulario.html">Donar</a></li>
+            <li><a href="contacto.html">Voluntariado</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pie__legal">
+      <p><small>© 2026 Software Sostenible ONG. Todos los derechos reservados.</small></p>
+      <p><small>Política de privacidad · Aviso legal · Accesibilidad</small></p>
+    </div>
+  </footer>
+</body>
+</html>
