@@ -1,0 +1,1316 @@
+/* =========================================================
+   SOFTWARE SOSTENIBLE ONG · css/estilo.css
+   Hoja de estilos global (UT2 · RA2 · Fase 3)
+   Fuente de valores: guía de estilo de la UT1 (Penpot)
+
+   ÍNDICE
+   1. Variables y reinicio
+   2. Tipografía
+   3. Disposición (container, estructura de página, grids)
+   4. Componentes (botón, menú, tarjeta, chip, formulario…)
+   5. Utilidades
+   6. Adaptación a tableta y móvil (media queries)
+   ========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES Y REINICIO
+   ========================================================= */
+:root {
+  /* Paleta de la guía de estilo */
+  --color-primario: #05668D;
+  --color-secundario: #028090;
+  --color-acento: #00A896;
+  --color-destacado: #02C39A;
+  --color-tinte: #EAF6F5;
+  --color-tinte-fuerte: #D3ECEA;
+  --color-borde: #B9D3D9;
+  --color-texto: #000000;
+  --color-texto-suave: #3D4A52;
+  --color-fondo: #FFFFFF;
+  --color-error: #B00020;
+
+  /* Tipografías (Google Fonts) con sans-serif de reserva */
+  --fuente-titulos: 'Goldman', sans-serif;
+  --fuente-texto: 'Oxanium', sans-serif;
+
+  /* Escala tipográfica */
+  --fs-h1: clamp(2.25rem, 4vw + 0.5rem, 3.5rem);   /* 56 px en escritorio */
+  --fs-h2: clamp(1.75rem, 2vw + 1rem, 2.5rem);     /* 40 px en escritorio */
+  --fs-h3: 1.375rem;                               /* 22 px */
+  --fs-grande: 1.125rem;                           /* 18 px */
+  --fs-pequeno: 0.875rem;                          /* 14 px */
+
+  /* Espaciados */
+  --esp-1: 0.5rem;
+  --esp-2: 0.75rem;
+  --esp-3: 1rem;
+  --esp-4: 1.5rem;
+  --esp-5: 2rem;
+  --esp-6: 3rem;
+  --esp-7: 4rem;
+  --esp-8: 6rem;
+  --margen-lateral: 7rem;       /* margen a ambos lados del contenido */
+  --ancho-contenido: 76rem;     /* 1216 px de contenido útil */
+  --ancho-texto: 47.5rem;       /* 760 px: columna de lectura */
+
+  /* Medidas de componentes */
+  --height-nav: 9.0625rem;      /* cabecera completa: barra + menú (145 px) */
+  --radio: 4px;
+  --radio-grande: 8px;
+  --transicion: 0.2s ease;
+}
+
+/* Reinicio de estilos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+
+/* =========================================================
+   2. TIPOGRAFÍA
+   ========================================================= */
+body {
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  color: var(--color-primario);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.36;
+}
+
+p {
+  margin-bottom: var(--esp-3);
+}
+
+a {
+  color: var(--color-primario);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transicion);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+mark {
+  background-color: var(--color-destacado);
+  color: var(--color-texto);
+  padding: 0 0.25rem;
+  border-radius: 2px;
+}
+
+small {
+  font-size: var(--fs-pequeno);
+}
+
+.antetitulo {
+  margin-bottom: var(--esp-2);
+  font-size: var(--fs-pequeno);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secundario);
+}
+
+.entradilla {
+  font-size: var(--fs-grande);
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   3. DISPOSICIÓN
+   ========================================================= */
+
+/* --- 3.1 Contenedor centrado ---------------------------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--ancho-contenido) + 2 * var(--margen-lateral));
+  margin-inline: auto;
+  padding-inline: var(--margen-lateral);
+}
+
+/* --- 3.2 Pie siempre abajo (Flexbox en el body) ---------- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* --- 3.3 Cabecera y menú (Flexbox) ---------------------- */
+.cabecera {
+  background-color: var(--color-fondo);
+}
+
+.cabecera__barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6rem;                       /* 96 px */
+}
+
+.menu {
+  border-block: 1px solid var(--color-borde);
+}
+
+.menu__lista {
+  display: flex;
+  gap: var(--esp-1);
+}
+
+/* El primer enlace se alinea con el borde del logotipo */
+.menu__lista > li:first-child .menu__enlace {
+  padding-left: 0;
+}
+
+/* --- 3.4 Hero -------------------------------------------- */
+.hero {
+  padding-block: var(--esp-8);
+}
+
+.hero__contenido {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-7);
+}
+
+.hero__texto {
+  flex: 1;
+}
+
+.hero__botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-3);
+}
+
+/* Hero de portada: altura = ventana menos cabecera */
+.hero--inicio {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - var(--height-nav));
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+}
+
+.hero--inicio h1,
+.hero--inicio .antetitulo {
+  color: var(--color-fondo);
+}
+
+.hero--inicio h1 {
+  margin-bottom: var(--esp-4);
+}
+
+.hero__subtitulo {
+  max-width: 35rem;
+  margin-bottom: var(--esp-4);
+  font-size: var(--fs-grande);
+  line-height: 1.55;
+}
+
+.hero__imagen {
+  width: 30rem;
+  height: 22.5rem;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: var(--radio-grande);
+}
+
+/* Hero de páginas interiores */
+.hero--claro {
+  padding-block: 4.5rem;
+  background-color: var(--color-tinte);
+}
+
+.hero--claro .hero__contenido {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.hero--claro h1 {
+  margin-bottom: var(--esp-3);
+}
+
+.hero--claro p:last-child {
+  max-width: 40rem;
+  margin-bottom: 0;
+}
+
+/* --- 3.5 Secciones generales ----------------------------- */
+.seccion {
+  padding-block: var(--esp-8);
+}
+
+.seccion--quienes {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.seccion__texto {
+  flex: 1;
+}
+
+.seccion__texto h2 {
+  margin-bottom: 1.25rem;
+}
+
+.seccion__imagen {
+  width: 36rem;
+  height: 24rem;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: var(--radio-grande);
+}
+
+.seccion--articulos {
+  background-color: var(--color-tinte);
+}
+
+.seccion__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-3);
+  margin-bottom: 2.5rem;
+}
+
+.seccion--articulos h2 {
+  margin-bottom: 2.5rem;
+}
+
+.seccion__cabecera h2 {
+  margin-bottom: 0;
+}
+
+/* --- 3.6 Rejilla de tarjetas (Grid): 3 · 2 · 1 columnas -- */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--esp-5);
+}
+
+/* --- 3.7 Listado y filtros -------------------------------- */
+.filtros {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--esp-5);
+  padding-top: var(--esp-6);
+  padding-bottom: var(--esp-3);
+}
+
+.filtros__titulo {
+  margin-bottom: var(--esp-2);
+  font-family: var(--fuente-texto);
+  font-size: var(--fs-pequeno);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-2);
+}
+
+.listado {
+  padding-top: var(--esp-5);
+  padding-bottom: var(--esp-6);
+}
+
+.listado__mas {
+  margin: var(--esp-6) 0 0;
+  text-align: center;
+}
+
+/* --- 3.8 Artículo de detalle ------------------------------ */
+.migas {
+  padding-top: var(--esp-5);
+}
+
+.articulo {
+  padding-bottom: var(--esp-7);
+}
+
+.articulo__cabecera,
+.articulo__texto,
+.migas__lista {
+  max-width: var(--ancho-texto);
+  margin-inline: auto;
+}
+
+.articulo__cabecera {
+  padding-block: var(--esp-4) var(--esp-5);
+}
+
+.articulo__cabecera h1 {
+  margin-block: var(--esp-2) var(--esp-3);
+}
+
+.articulo__datos {
+  margin-bottom: 0;
+  font-size: var(--fs-pequeno);
+  color: var(--color-texto-suave);
+}
+
+.articulo__destacada {
+  margin-bottom: var(--esp-6);
+}
+
+.articulo__destacada img {
+  width: 100%;
+  height: 27.5rem;                    /* 440 px */
+  object-fit: cover;
+  border-radius: var(--radio-grande);
+}
+
+.articulo__texto h2 {
+  margin-block: var(--esp-5) var(--esp-3);
+  font-size: 1.75rem;
+}
+
+.articulo__figura {
+  margin-block: var(--esp-4);
+}
+
+.articulo__figura img {
+  width: 100%;
+  height: 22.5rem;                    /* 360 px */
+  object-fit: cover;
+  border-radius: var(--radio-grande);
+}
+
+.articulo__figura figcaption,
+.galeria figcaption {
+  margin-top: var(--esp-1);
+  font-size: var(--fs-pequeno);
+  color: var(--color-texto-suave);
+}
+
+/* Galería (Flexbox) */
+.galeria {
+  margin-top: var(--esp-7);
+}
+
+.galeria h2 {
+  margin-bottom: var(--esp-4);
+}
+
+.galeria__lista {
+  display: flex;
+  gap: var(--esp-4);
+}
+
+.galeria__lista li {
+  flex: 1;
+}
+
+.galeria__lista img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: var(--radio-grande);
+}
+
+/* --- 3.9 Donación y formularios (Flexbox) ----------------- */
+.donacion {
+  padding-block: 4.5rem var(--esp-8);
+  background-color: var(--color-tinte);
+}
+
+.donacion__contenido {
+  display: flex;
+  align-items: flex-start;
+  gap: 5rem;
+}
+
+.donacion__info {
+  flex: 1;
+}
+
+.donacion__info h1 {
+  margin-bottom: var(--esp-4);
+}
+
+.donacion__subtitulo {
+  margin-block: var(--esp-5) var(--esp-3);
+  font-family: var(--fuente-texto);
+  font-size: var(--fs-pequeno);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+}
+
+.donacion .formulario {
+  flex: 0 0 38.5rem;                  /* 616 px */
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-4);
+}
+
+.formulario__titulo {
+  font-size: 1.75rem;
+}
+
+.formulario__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  border: 0;
+}
+
+.formulario__grupo legend {
+  margin-bottom: var(--esp-2);
+  font-weight: 600;
+}
+
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-2);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-1);
+}
+
+.campo label {
+  font-weight: 600;
+}
+
+.campo--casilla {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--esp-2);
+}
+
+.campo--casilla label {
+  font-weight: 400;
+}
+
+.formulario > .btn {
+  width: 100%;
+}
+
+.formulario__nota {
+  margin-bottom: 0;
+  color: var(--color-texto-suave);
+}
+
+/* --- 3.10 Contacto (Grid con áreas) ----------------------- */
+.contacto {
+  display: grid;
+  grid-template-columns: minmax(0, 1.44fr) minmax(0, 1fr);
+  grid-template-areas:
+    "formulario datos"
+    "formulario mapa";
+  grid-template-rows: auto 1fr;
+  gap: var(--esp-5) var(--esp-7);
+  align-items: start;
+  padding-block: 4.5rem var(--esp-8);
+}
+
+.contacto__formulario {
+  grid-area: formulario;
+}
+
+.contacto__formulario h2 {
+  margin-bottom: var(--esp-4);
+  font-size: 1.75rem;
+}
+
+.contacto__datos {
+  grid-area: datos;
+}
+
+.contacto__datos h2 {
+  margin-bottom: var(--esp-4);
+  font-size: 1.75rem;
+}
+
+.contacto__mapa {
+  grid-area: mapa;
+}
+
+.contacto__mapa img {
+  width: 100%;
+  height: 16.25rem;                   /* 260 px */
+  object-fit: cover;
+  border-radius: var(--radio-grande);
+}
+
+.datos {
+  font-style: normal;
+}
+
+.datos dl {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: var(--esp-2) var(--esp-3);
+}
+
+.datos dt {
+  font-size: var(--fs-pequeno);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+}
+
+/* --- 3.11 Pie de página (Flexbox) ------------------------- */
+.pie {
+  background-color: var(--color-texto);
+  color: var(--color-fondo);
+  padding-block: var(--esp-7) var(--esp-5);
+}
+
+.pie__interior {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-6);
+}
+
+.pie__principal {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--esp-6);
+}
+
+.pie__marca {
+  max-width: 20rem;
+}
+
+.pie__marca p {
+  margin-top: var(--esp-3);
+}
+
+.pie__columnas {
+  display: flex;
+  gap: var(--esp-7);
+}
+
+.pie__titulo {
+  margin-bottom: var(--esp-2);
+  font-family: var(--fuente-texto);
+  font-size: var(--fs-pequeno);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-fondo);
+}
+
+.pie__columna li {
+  margin-bottom: var(--esp-2);
+}
+
+.pie__columna li:last-child {
+  margin-bottom: 0;
+}
+
+.pie__legal {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--esp-3);
+  padding-top: var(--esp-5);
+  border-top: 1px solid var(--color-texto-suave);
+}
+
+.pie__legal p {
+  margin-bottom: 0;
+}
+
+.pie a {
+  color: var(--color-fondo);
+  font-weight: 500;
+}
+
+.pie a:hover {
+  color: var(--color-destacado);
+}
+
+
+/* =========================================================
+   4. COMPONENTES REUTILIZABLES
+   ========================================================= */
+
+/* --- 4.1 Logotipo ----------------------------------------- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+  color: var(--color-texto);
+}
+
+.pie .logo {
+  color: var(--color-fondo);
+}
+
+.logo__texto {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.logo__texto strong {
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+/* --- 4.2 Botón .btn y variantes --------------------------- */
+.btn {
+  display: inline-block;
+  padding: var(--esp-2) var(--esp-4);
+  border: 2px solid transparent;
+  border-radius: var(--radio);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transicion),
+              border-color var(--transicion),
+              color var(--transicion),
+              transform var(--transicion);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+.btn--donar {
+  background-color: var(--color-destacado);
+  color: var(--color-texto);
+}
+
+.btn--donar:hover {
+  background-color: var(--color-acento);
+  color: var(--color-texto);
+}
+
+.btn--primario {
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+}
+
+.btn--primario:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-fondo);
+}
+
+.btn--secundario {
+  background-color: var(--color-fondo);
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+}
+
+.btn--secundario:hover {
+  background-color: var(--color-tinte);
+  color: var(--color-primario);
+}
+
+/* --- 4.3 Menú de navegación ------------------------------ */
+.menu__enlace {
+  display: flex;
+  align-items: center;
+  min-height: 2.9375rem;              /* 47 px */
+  padding: 0.625rem var(--esp-2) 0.375rem;
+  border-bottom: 3px solid transparent;
+  color: var(--color-texto);
+  letter-spacing: 0.02em;
+  transition: color var(--transicion), border-color var(--transicion);
+}
+
+.menu__enlace:hover,
+.menu__enlace[aria-current="page"] {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-primario);
+}
+
+/* --- 4.4 Tarjeta de artículo ------------------------------ */
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  transition: border-color var(--transicion), box-shadow var(--transicion), transform var(--transicion);
+}
+
+.tarjeta:hover {
+  border-color: var(--color-primario);
+  box-shadow: 0 6px 16px rgb(5 102 141 / 0.15);
+  transform: translateY(-3px);
+}
+
+.tarjeta__imagen {
+  width: 100%;
+  height: 12.5rem;                    /* 200 px */
+  object-fit: cover;
+}
+
+.tarjeta__cuerpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--esp-2);
+  padding: var(--esp-4);
+}
+
+.tarjeta__cuerpo > * {
+  margin-bottom: 0;
+}
+
+.tarjeta__cuerpo > .enlace {
+  margin-top: auto;
+}
+
+.tarjeta__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+  font-size: var(--fs-pequeno);
+  font-weight: 500;
+  color: var(--color-texto-suave);
+}
+
+.tarjeta__titulo {
+  color: var(--color-texto);
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 0 var(--esp-1);
+  background-color: var(--color-tinte-fuerte);
+  border-radius: 2px;
+  color: var(--color-texto);
+  font-size: var(--fs-pequeno);
+  font-weight: 500;
+}
+
+.enlace:hover {
+  text-decoration: underline;
+}
+
+/* --- 4.5 Chips de filtro ---------------------------------- */
+.chip {
+  display: inline-block;
+  padding: var(--esp-1) var(--esp-3);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  transition: background-color var(--transicion), border-color var(--transicion), color var(--transicion);
+}
+
+.chip:hover {
+  border-color: var(--color-primario);
+  background-color: var(--color-tinte);
+}
+
+.chip:active {
+  background-color: var(--color-tinte-fuerte);
+}
+
+.chip[aria-current="true"] {
+  border-color: var(--color-primario);
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+}
+
+/* --- 4.6 Panel (tarjeta de formulario) -------------------- */
+.panel {
+  padding: 2.5rem;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-grande);
+}
+
+/* --- 4.7 Campos de formulario ------------------------------ */
+.campo input[type="text"],
+.campo input[type="email"],
+.buscador input,
+.campo textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: var(--esp-2) var(--esp-3);
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio);
+  background-color: var(--color-fondo);
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.campo textarea {
+  resize: vertical;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder,
+.buscador input::placeholder {
+  color: var(--color-texto-suave);
+  opacity: 0.75;
+}
+
+.campo input:hover,
+.campo textarea:hover,
+.buscador input:hover {
+  border-color: var(--color-primario);
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.buscador input:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px var(--color-acento);
+}
+
+.campo input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  accent-color: var(--color-primario);
+}
+
+.buscador {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-1);
+  width: 22.5rem;                     /* 360 px */
+}
+
+.buscador label {
+  font-size: var(--fs-pequeno);
+  font-weight: 600;
+}
+
+/* Opciones de frecuencia e importe */
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-1);
+  padding: var(--esp-1) var(--esp-3);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: border-color var(--transicion), background-color var(--transicion);
+}
+
+.opcion:hover {
+  border-color: var(--color-primario);
+}
+
+.opcion:has(input:checked) {
+  border-color: var(--color-primario);
+  background-color: var(--color-tinte);
+}
+
+.opcion:has(input:focus-visible) {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+.opcion input {
+  accent-color: var(--color-primario);
+}
+
+/* --- 4.8 Lista de puntos con marca ------------------------- */
+.lista-puntos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  margin-bottom: var(--esp-3);
+}
+
+.lista-puntos li {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+}
+
+.lista-puntos li::before {
+  content: "\2713";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--color-destacado);
+  color: var(--color-texto);
+  font-size: var(--fs-pequeno);
+  font-weight: 700;
+}
+
+/* --- 4.9 Migas de pan ---------------------------------------- */
+.migas__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-1);
+  font-size: var(--fs-pequeno);
+}
+
+.migas__lista li + li::before {
+  content: "/";
+  margin-right: var(--esp-1);
+  color: var(--color-texto-suave);
+}
+
+.migas__lista a {
+  font-weight: 500;
+}
+
+.migas__lista a:hover {
+  text-decoration: underline;
+}
+
+.migas__lista li[aria-current="page"] {
+  color: var(--color-texto-suave);
+}
+
+/* --- 4.10 Nota destacada ------------------------------------- */
+.nota {
+  margin-block: var(--esp-4);
+  padding: var(--esp-4);
+  background-color: var(--color-tinte);
+  border-left: 6px solid var(--color-primario);
+  border-radius: 0 var(--radio) var(--radio) 0;
+}
+
+.nota__etiqueta {
+  margin-bottom: var(--esp-1);
+  font-size: var(--fs-pequeno);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primario);
+}
+
+.nota p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- 4.11 Banner de donación (.banner) ----------------------- */
+.banner {
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+  padding-block: 3.5rem;
+}
+
+.banner__contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-5);
+}
+
+.banner h2 {
+  margin-bottom: var(--esp-1);
+  color: var(--color-fondo);
+}
+
+.banner__texto {
+  max-width: 38.75rem;
+}
+
+.banner__texto p {
+  margin-bottom: 0;
+}
+
+/* --- 4.12 Llamada a la acción (.cta) -------------------------- */
+/* Imagen de fondo (cover, sin repetición) con un bloque blanco
+   a la izquierda para el texto */
+.cta {
+  margin: var(--esp-8) auto;
+  width: min(var(--ancho-contenido), calc(100% - 2 * var(--margen-lateral)));
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-grande);
+  background:
+    linear-gradient(to right, var(--color-fondo) 58%, transparent 58%),
+    url('../img/cta-fondo.jpg') center / cover no-repeat;
+}
+
+.cta__texto {
+  max-width: 42rem;
+  padding: 3.5rem;
+}
+
+.cta__texto h2 {
+  margin-bottom: var(--esp-3);
+}
+
+.cta__texto p {
+  max-width: 35rem;
+  margin-bottom: var(--esp-4);
+}
+
+
+/* =========================================================
+   5. UTILIDADES
+   ========================================================= */
+.saltar {
+  position: absolute;
+  left: -999px;
+  padding: var(--esp-1) var(--esp-3);
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+}
+
+.saltar:focus {
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   6. ADAPTACIÓN A TABLETA Y MÓVIL
+   ========================================================= */
+
+/* --- Tableta: hasta 900 px ----------------------------------- */
+@media (max-width: 900px) {
+  :root {
+    --margen-lateral: 2rem;
+    --esp-8: 4rem;
+  }
+
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__contenido,
+  .seccion--quienes,
+  .donacion__contenido,
+  .pie__principal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--esp-5);
+  }
+
+  .hero__imagen,
+  .seccion__imagen {
+    width: 100%;
+    height: 18rem;
+  }
+
+  .donacion .formulario {
+    flex: none;
+    width: 100%;
+  }
+
+  .contacto {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "formulario"
+      "datos"
+      "mapa";
+  }
+
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buscador {
+    width: 100%;
+  }
+}
+
+/* --- Móvil: hasta 600 px ------------------------------------- */
+@media (max-width: 600px) {
+  :root {
+    --margen-lateral: 1.25rem;
+    --esp-8: 3rem;
+    --height-nav: 7.375rem;
+  }
+
+  .cabecera__barra {
+    height: 4.75rem;
+  }
+
+  .menu__lista {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .menu__enlace {
+    min-height: 2.5rem;
+    padding-inline: 0.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+
+  .hero--inicio .hero__botones {
+    flex-direction: column;
+  }
+
+  .hero--inicio .btn,
+  .seccion__texto .btn {
+    width: 100%;
+  }
+
+  .hero__imagen {
+    height: 13.75rem;                 /* 220 px */
+  }
+
+  .seccion__imagen {
+    height: 15rem;                    /* 240 px */
+  }
+
+  .seccion__cabecera {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* CTA: imagen arriba y texto debajo */
+  .cta {
+    margin-block: var(--esp-6);
+    background:
+      linear-gradient(to bottom, transparent 12.5rem, var(--color-fondo) 12.5rem),
+      url('../img/cta-fondo.jpg') center / cover no-repeat;
+  }
+
+  .cta__texto {
+    padding: 14.5rem var(--esp-4) var(--esp-4);
+  }
+
+  .banner__contenido {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .panel {
+    padding: var(--esp-4);
+  }
+
+  .galeria__lista {
+    flex-direction: column;
+  }
+
+  .articulo__destacada img {
+    height: 15rem;
+  }
+
+  .articulo__figura img {
+    height: 13.75rem;
+  }
+
+  .pie__columnas {
+    flex-wrap: wrap;
+    gap: var(--esp-5);
+  }
+
+  .pie__legal {
+    flex-direction: column;
+  }
+
+  .datos dl {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .datos dd {
+    margin-bottom: var(--esp-2);
+  }
+}
