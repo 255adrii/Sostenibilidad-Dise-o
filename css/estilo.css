@@ -143,7 +143,7 @@ a {
 }
 
 a:focus-visible {
-  outline: 3px solid var(--color-acento);
+  outline: 3px solid var(--color-secundario);
   outline-offset: 2px;
 }
 
@@ -173,6 +173,11 @@ small {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-secundario);
+}
+
+.hero--claro .antetitulo,
+.donacion .antetitulo {
+  color: var(--color-primario);     /* sobre tinte: 5,77:1 (secundario daba 4,23:1) */
 }
 
 .entradilla {
@@ -214,6 +219,12 @@ main {
   align-items: center;
   justify-content: space-between;
   height: 6rem;                       /* 96 px */
+}
+
+.cabecera__acciones {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
 }
 
 .menu {
@@ -763,7 +774,7 @@ main {
 }
 
 .btn:focus-visible {
-  outline: 3px solid var(--color-acento);
+  outline: 3px solid var(--color-secundario);
   outline-offset: 2px;
 }
 
@@ -796,6 +807,17 @@ main {
 .btn--secundario:hover {
   background-color: var(--color-tinte);
   color: var(--color-primario);
+}
+
+.btn--pequeno {
+  padding: var(--esp-1) var(--esp-3);
+  font-size: var(--fs-pequeno);
+}
+
+/* Conmutador de la hoja alternativa de alto contraste */
+.btn-contraste[aria-pressed="true"] {
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
 }
 
 /* --- 4.3 Menú de navegación ------------------------------ */
@@ -952,7 +974,7 @@ main {
 .buscador input:focus {
   outline: none;
   border-color: var(--color-primario);
-  box-shadow: 0 0 0 3px var(--color-acento);
+  box-shadow: 0 0 0 3px var(--color-secundario);
 }
 
 .campo input[type="checkbox"] {
@@ -995,7 +1017,7 @@ main {
 }
 
 .opcion:has(input:focus-visible) {
-  outline: 3px solid var(--color-acento);
+  outline: 3px solid var(--color-secundario);
   outline-offset: 2px;
 }
 
@@ -1224,6 +1246,27 @@ main {
 
   .cabecera__barra {
     height: 4.75rem;
+  }
+
+  .cabecera__acciones {
+    gap: var(--esp-1);
+  }
+
+  .cabecera__acciones .btn {
+    padding: 0.375rem var(--esp-1);
+    font-size: 0.75rem;
+  }
+
+  .logo {
+    gap: var(--esp-1);
+  }
+
+  .logo__texto {
+    font-size: 0.6875rem;
+  }
+
+  .logo__texto strong {
+    font-size: 1rem;
   }
 
   .menu__lista {

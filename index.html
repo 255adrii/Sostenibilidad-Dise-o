@@ -12,6 +12,47 @@
 
   <!-- Hoja de estilos global -->
   <link rel="stylesheet" href="css/estilo.css">
+  <!-- FASE 4: hoja alternativa de alto contraste (desactivada hasta que se pida) -->
+  <link rel="alternate stylesheet" href="css/alto-contraste.css" title="Alto contraste" id="hoja-contraste">
+
+  <!-- Conmutador (JavaScript): activa o desactiva el alto contraste y recuerda la elección -->
+  <script>
+    (function () {
+      var hoja = document.getElementById('hoja-contraste');
+
+      /* Activa o desactiva el alto contraste. Al activarlo se enlaza la misma hoja
+         (css/alto-contraste.css) como hoja normal al final del <head>; al desactivarlo
+         se retira. Así el cambio funciona igual en todos los navegadores. */
+      function aplicar(activo) {
+        var activa = document.getElementById('hoja-contraste-activa');
+        if (activo && !activa) {
+          activa = document.createElement('link');
+          activa.rel = 'stylesheet';
+          activa.href = hoja.href;
+          activa.id = 'hoja-contraste-activa';
+          document.head.appendChild(activa);
+        } else if (!activo && activa) {
+          activa.remove();
+        }
+        var boton = document.getElementById('btn-contraste');
+        if (boton) { boton.setAttribute('aria-pressed', String(activo)); }
+      }
+
+      var guardado = false;
+      try { guardado = localStorage.getItem('contraste') === 'activo'; } catch (e) {}
+      if (guardado) { aplicar(true); }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var boton = document.getElementById('btn-contraste');
+        boton.setAttribute('aria-pressed', String(guardado));
+        boton.addEventListener('click', function () {
+          var activar = boton.getAttribute('aria-pressed') !== 'true';
+          aplicar(activar);
+          try { localStorage.setItem('contraste', activar ? 'activo' : 'normal'); } catch (e) {}
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -22,7 +63,10 @@
         <img class="logo__marca" src="img/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
         <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
       </a>
-      <a class="btn btn--donar" href="formulario.html">Donar</a>
+      <div class="cabecera__acciones">
+        <button type="button" class="btn btn--secundario btn--pequeno btn-contraste" id="btn-contraste" aria-pressed="false" title="Activar o desactivar el modo de alto contraste">Contraste</button>
+        <a class="btn btn--donar" href="formulario.html">Donar</a>
+      </div>
     </div>
     <nav class="menu" aria-label="Menú principal">
       <ul class="menu__lista container">

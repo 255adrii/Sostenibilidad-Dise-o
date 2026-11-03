@@ -1,0 +1,159 @@
+/* =========================================================
+   css/alto-contraste.css · Hoja de estilos ALTERNATIVA
+   Se declara en las cinco páginas con:
+     <link rel="alternate stylesheet" title="Alto contraste" ...>
+   y se activa con el botón «Contraste» (JavaScript, propiedad
+   disabled del <link>) o desde el menú de estilo de página de
+   Firefox. Se carga DESPUÉS de estilo.css y pagina-detalle.css,
+   por lo que, con igual especificidad, sus reglas prevalecen.
+
+   ESTRATEGIA
+   1. Se redefinen las variables de :root (todo el sitio usa var()).
+   2. Se corrigen los componentes donde un mismo color se usaba como
+      fondo y como texto sobre fondos de color.
+   3. Se refuerzan bordes y se subrayan los enlaces.
+
+   PALETA ALTERNATIVA (contrastes calculados con la fórmula WCAG 2.1)
+   Texto #FFFFFF sobre #000000 ............ 21,00 : 1
+   Texto suave #E0E0E0 sobre #000000 ....... 15,91 : 1
+   Primario #FFD600 sobre #000000 .......... 14,87 : 1
+   Secundario #00E5FF sobre #000000 ........ 13,65 : 1
+   Texto #FFFFFF sobre tinte #121212 ....... 18,73 : 1
+   Primario #FFD600 sobre tinte #121212 .... 13,27 : 1
+   Texto sobre tinte fuerte #2B2B2B ........ 14,16 : 1
+   Negro sobre primario (botones) .......... 14,87 : 1
+   Negro sobre cian (marcas, hover) ........ 13,65 : 1
+   Todos superan AAA (7 : 1); WCAG AA exige 4,5 : 1 en texto normal
+   y 3 : 1 en componentes y bordes.
+   ========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES: paleta alternativa
+   ========================================================= */
+:root {
+  color-scheme: dark;                 /* controles y barras de desplazamiento oscuros */
+
+  --color-fondo: #000000;
+  --color-texto: #FFFFFF;
+  --color-texto-suave: #E0E0E0;
+  --color-primario: #FFD600;
+  --color-secundario: #00E5FF;
+  --color-acento: #00E5FF;
+  --color-destacado: #00E5FF;
+  --color-tinte: #121212;
+  --color-tinte-fuerte: #2B2B2B;
+  --color-borde: #FFFFFF;
+  --color-error: #FF8A80;
+}
+
+
+/* =========================================================
+   2. COMPONENTES QUE NECESITAN AJUSTE
+   ========================================================= */
+
+/* Hero y banner: pasan de fondo azul a fondo negro con filete amarillo */
+.hero--inicio,
+.banner {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  border-block: 2px solid var(--color-primario);
+}
+
+.hero--inicio h1,
+.banner h2 {
+  color: var(--color-primario);
+}
+
+.hero--inicio .antetitulo {
+  color: var(--color-secundario);
+}
+
+/* Botón de donar: blanco con texto negro (visible sobre cualquier fondo) */
+.btn--donar {
+  background-color: var(--color-texto);
+  border-color: var(--color-texto);
+  color: var(--color-fondo);
+}
+
+.btn--donar:hover {
+  background-color: var(--color-destacado);
+  border-color: var(--color-destacado);
+  color: var(--color-fondo);
+}
+
+/* Botón de contraste: relleno cuando está activado */
+.btn-contraste[aria-pressed="true"] {
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+}
+
+/* Texto sobre fondos de color: siempre negro */
+mark {
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+}
+
+.lista-puntos li::before {
+  color: var(--color-fondo);
+}
+
+/* Pie: sigue oscuro, con filete superior */
+.pie {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  border-top: 2px solid var(--color-texto);
+}
+
+.pie a,
+.pie .logo,
+.pie__titulo {
+  color: var(--color-texto);
+}
+
+.pie a:hover {
+  color: var(--color-primario);
+}
+
+.pie__legal {
+  border-top-color: var(--color-borde);
+}
+
+
+/* =========================================================
+   3. BORDES MÁS FIRMES Y ENLACES SUBRAYADOS
+   ========================================================= */
+.tarjeta,
+.panel,
+.cta {
+  border-width: 2px;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.buscador input,
+.campo textarea,
+.opcion,
+.chip {
+  border-width: 2px;
+}
+
+.enlace,
+.migas__lista a,
+.pie a,
+.datos a,
+.campo--casilla a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.btn,
+.menu__enlace,
+.logo,
+.pie .logo {
+  text-decoration: none;
+}
+
+.menu__enlace[aria-current="page"] {
+  border-bottom-width: 4px;
+}

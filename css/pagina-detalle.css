@@ -1,0 +1,81 @@
+/* =========================================================
+   css/pagina-detalle.css · Redefinición de estilos (RA2 · Fase 4)
+   Solo se enlaza en detalle.html, DESPUÉS de estilo.css:
+
+     <link rel="stylesheet" href="css/estilo.css">
+     <link rel="stylesheet" href="css/pagina-detalle.css">
+
+   Cuando dos reglas afectan a la misma propiedad del mismo
+   elemento, el navegador decide así:
+     1. Marcador de prioridad forzada de CSS: no se usa en este proyecto.
+     2. Especificidad del selector (id > clase > etiqueta).
+     3. Orden: a igual especificidad gana la regla que aparece
+        después, y esta hoja se carga la última.
+   Un valor heredado siempre pierde frente a una regla directa.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   REDEFINICIÓN 1 · Selector de ETIQUETA: h1
+   estilo.css:        h1 { font-size: var(--fs-h1); line-height: 1.15; }
+   Misma especificidad (0,0,1) → gana esta regla por ORDEN, al
+   cargarse después. Los títulos de artículo son largos y
+   conviene un h1 algo más contenido en la columna de lectura.
+   --------------------------------------------------------- */
+h1 {
+  font-size: clamp(2rem, 1.25rem + 2.5vw, 3rem);   /* máx. 48 px */
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+
+/* ---------------------------------------------------------
+   REDEFINICIÓN 2 · Selector de CLASE: .tarjeta
+   (artículos relacionados al final del detalle)
+   estilo.css:        .tarjeta { border-radius: var(--radio); }
+                      .tarjeta:hover { transform: translateY(-3px); }
+   Misma especificidad en cada pareja → gana esta hoja por ORDEN.
+   Las tarjetas secundarias son más compactas y no «saltan» al
+   pasar el ratón, para no competir con el artículo.
+   --------------------------------------------------------- */
+.tarjeta {
+  border-radius: var(--radio-grande);
+}
+
+.tarjeta__imagen {
+  height: 11rem;                                   /* 176 px (antes 200 px) */
+}
+
+.tarjeta:hover {
+  transform: none;
+}
+
+
+/* ---------------------------------------------------------
+   REDEFINICIÓN 3 · ESPECIFICIDAD: subtítulos h2 del artículo
+   estilo.css:        .articulo__texto h2 { font-size: 1.75rem; ... }  → (0,1,1)
+
+   Una regla  h2 { ... }  aquí NO funcionaría: aunque está después,
+   su especificidad (0,0,1) es menor y perdería.
+   Se resuelve con un selector de IGUAL especificidad
+   (.articulo__texto h2 = 0,1,1): al empatar, decide el ORDEN y gana
+   esta hoja. No hace falta forzar la prioridad ni alargar el selector.
+   --------------------------------------------------------- */
+.articulo__texto h2 {
+  padding-bottom: var(--esp-1);
+  border-bottom: 2px solid var(--color-borde);
+  font-size: 1.625rem;                             /* 26 px (antes 28 px) */
+}
+
+
+/* ---------------------------------------------------------
+   REDEFINICIÓN 4 · HERENCIA: color y interlineado del texto
+   Estas propiedades se HEREDAN: párrafos, negritas y la nota las
+   reciben de .articulo__texto sin tener regla propia. Los h2 y los
+   enlaces no las heredan, porque tienen su propio color (una regla
+   directa siempre gana a un valor heredado).
+   --------------------------------------------------------- */
+.articulo__texto {
+  color: var(--color-texto-suave);
+  line-height: 1.7;
+}
