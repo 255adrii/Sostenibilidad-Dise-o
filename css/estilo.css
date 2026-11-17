@@ -1137,8 +1137,8 @@ main {
   border: 1px solid var(--color-borde);
   border-radius: var(--radio-grande);
   background:
-    linear-gradient(to right, var(--color-fondo) 58%, transparent 58%),
-    url('../img/cta-fondo.jpg') center / cover no-repeat;
+    linear-gradient(to right, var(--color-fondo) 58%, transparent 72%),
+    url('../img/portada-optimizada.webp') center / cover no-repeat;
 }
 
 .cta__texto {
@@ -1180,6 +1180,23 @@ main {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+.hero__imagen > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  filter: saturate(0.85);
+}
+
+.icono {
+  width: 1em;
+  height: 1em;
+  margin-inline-start: 0.35em;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
 
@@ -1310,8 +1327,8 @@ main {
   .cta {
     margin-block: var(--esp-6);
     background:
-      linear-gradient(to bottom, transparent 12.5rem, var(--color-fondo) 12.5rem),
-      url('../img/cta-fondo.jpg') center / cover no-repeat;
+      linear-gradient(to bottom, transparent 10rem, var(--color-fondo) 12.5rem),
+      url('../img/portada-optimizada.webp') center / cover no-repeat;
   }
 
   .cta__texto {
@@ -1356,4 +1373,33 @@ main {
   .datos dd {
     margin-bottom: var(--esp-2);
   }
+}
+
+/* Créditos visibles y enlaces largos adaptables. */
+.pie__creditos { margin-block: var(--esp-5); font-size: var(--fs-pequeno); overflow-wrap: anywhere; }
+.pie__creditos li { margin-bottom: var(--esp-2); }
+
+/* Mostrar toda la ilustración y sus textos, también en móvil. */
+.articulo__destacada img {
+  height: auto;
+  object-fit: contain;
+}
+
+/* UT3 fase 3: iconos SVG decorativos junto a su etiqueta de texto. */
+.icono {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+  vertical-align: -0.18em;
+  color: inherit;
+  stroke: currentColor;
+}
+.menu__enlace > .icono[data-tabler], .btn > .icono[data-tabler], .campo label > .icono[data-tabler] {
+  margin-inline-start: 0;
+  margin-inline-end: .3em;
+}
+.menu__enlace:hover > .icono, .btn:hover > .icono,
+.menu__enlace:focus-visible > .icono, .btn:focus-visible > .icono {
+  stroke-width: 2.5;
 }

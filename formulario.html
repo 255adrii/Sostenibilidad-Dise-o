@@ -61,20 +61,32 @@
   <header class="cabecera" id="cabecera">
     <div class="container cabecera__barra">
       <a class="logo" href="index.html" title="Ir al inicio">
-        <img class="logo__marca" src="img/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+        <img class="logo__marca" src="img/svg/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
         <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
       </a>
       <div class="cabecera__acciones">
         <button type="button" class="btn btn--secundario btn--pequeno btn-contraste" id="btn-contraste" aria-pressed="false" title="Activar o desactivar el modo de alto contraste">Contraste</button>
-        <a class="btn btn--donar" href="formulario.html" aria-current="page">Donar</a>
+        <a class="btn btn--donar" href="formulario.html" aria-current="page"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="heart">
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
+</svg> Donar</a>
       </div>
     </div>
     <nav class="menu" aria-label="Menú principal">
       <ul class="menu__lista container">
-        <li><a class="menu__enlace" href="index.html#quienes-somos">Quiénes somos</a></li>
-        <li><a class="menu__enlace" href="index.html">Proyectos</a></li>
+        <li><a class="menu__enlace" href="index.html#quienes-somos"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="user">
+  <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/>
+</svg> Quiénes somos</a></li>
+        <li><a class="menu__enlace" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="home">
+  <path d="M5 12l-2 0l9 -9l9 9l-2 0"/>
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/>
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/>
+</svg> Proyectos</a></li>
         <li><a class="menu__enlace" href="listado.html">Artículos</a></li>
-        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+        <li><a class="menu__enlace" href="contacto.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="mail">
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/>
+  <path d="M3 7l9 6l9 -6"/>
+</svg> Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -118,11 +130,17 @@
           </fieldset>
 
           <div class="campo">
-            <label for="nombre">Nombre</label>
+            <label for="nombre"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="user">
+  <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/>
+</svg> Nombre</label>
             <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos" autocomplete="name" required>
           </div>
           <div class="campo">
-            <label for="email">Correo electrónico</label>
+            <label for="email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="mail">
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/>
+  <path d="M3 7l9 6l9 -6"/>
+</svg> Correo electrónico</label>
             <input type="email" id="email" name="email" placeholder="nombre@ejemplo.org" autocomplete="email" required>
           </div>
 
@@ -131,7 +149,9 @@
             <label for="privacidad">Acepto la política de privacidad</label>
           </div>
 
-          <button class="btn btn--donar" type="submit">Donar 25 € al mes</button>
+          <button class="btn btn--donar" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="heart">
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
+</svg> Donar 25 € al mes</button>
           <p class="formulario__nota"><small>Pago seguro. Puedes cancelar tu donación mensual cuando quieras.</small></p>
         </form>
       </div>
@@ -143,7 +163,7 @@
       <div class="pie__principal">
         <div class="pie__marca">
           <a class="logo" href="index.html" title="Ir al inicio">
-            <img class="logo__marca" src="img/logo-claro.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+            <img class="logo__marca" src="img/svg/logo-claro.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
             <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
           </a>
           <p>Tecnología abierta y eficiente para organizaciones con impacto.</p>
@@ -175,6 +195,7 @@
           </div>
         </div>
       </div>
+      <p class="pie__creditos">Iconos de <a href="https://tabler.io/icons">Tabler Icons</a>, Paweł Kuna. <a href="img/svg/tabler/LICENSE.txt">Licencia MIT</a>. Tamaño y color adaptados con CSS.</p>
       <div class="pie__legal">
         <p><small>© 2026 Software Sostenible ONG. Todos los derechos reservados.</small></p>
         <p><small>Política de privacidad · Aviso legal · Accesibilidad</small></p>

@@ -61,20 +61,32 @@
   <header class="cabecera" id="cabecera">
     <div class="container cabecera__barra">
       <a class="logo" href="index.html" title="Ir al inicio">
-        <img class="logo__marca" src="img/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+        <img class="logo__marca" src="img/svg/logo.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
         <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
       </a>
       <div class="cabecera__acciones">
         <button type="button" class="btn btn--secundario btn--pequeno btn-contraste" id="btn-contraste" aria-pressed="false" title="Activar o desactivar el modo de alto contraste">Contraste</button>
-        <a class="btn btn--donar" href="formulario.html">Donar</a>
+        <a class="btn btn--donar" href="formulario.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="heart">
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
+</svg> Donar</a>
       </div>
     </div>
     <nav class="menu" aria-label="Menú principal">
       <ul class="menu__lista container">
-        <li><a class="menu__enlace" href="index.html#quienes-somos">Quiénes somos</a></li>
-        <li><a class="menu__enlace" href="index.html">Proyectos</a></li>
+        <li><a class="menu__enlace" href="index.html#quienes-somos"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="user">
+  <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/>
+</svg> Quiénes somos</a></li>
+        <li><a class="menu__enlace" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="home">
+  <path d="M5 12l-2 0l9 -9l9 9l-2 0"/>
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/>
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/>
+</svg> Proyectos</a></li>
         <li><a class="menu__enlace" href="listado.html" aria-current="page">Artículos</a></li>
-        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+        <li><a class="menu__enlace" href="contacto.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="mail">
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/>
+  <path d="M3 7l9 6l9 -6"/>
+</svg> Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -109,7 +121,17 @@
       <h2 id="listado-titulo" class="sr-only">Listado de artículos</h2>
       <div class="tarjetas">
         <article class="tarjeta">
-          <img class="tarjeta__imagen" src="img/art-1.jpg" alt="" width="800" height="500" loading="lazy">
+          <picture>
+          <source srcset="img/huella-carbono-pequena.webp 400w, img/huella-carbono.webp 800w" sizes="(max-width: 600px) calc(100vw - 40px), 400px" type="image/webp">
+          <img
+            class="tarjeta__imagen"
+            src="img/huella-carbono.jpg"
+            alt="Ilustración de la huella de carbono"
+            width="800"
+            height="566"
+            loading="lazy"
+          >
+        </picture>
           <div class="tarjeta__cuerpo">
             <p class="tarjeta__meta"><span class="etiqueta">Buenas prácticas</span> <time datetime="2026-03-12">12 mar 2026</time></p>
             <h3 class="tarjeta__titulo">Cómo reducir la huella de carbono de tu web</h3>
@@ -118,7 +140,17 @@
           </div>
         </article>
         <article class="tarjeta">
-          <img class="tarjeta__imagen" src="img/art-2.jpg" alt="" width="800" height="500" loading="lazy">
+          <picture>
+          <source srcset="img/accesibilidad-dispositivos-pequena.webp 400w, img/accesibilidad-dispositivos.webp 800w" sizes="(max-width: 600px) calc(100vw - 40px), 400px" type="image/webp">
+          <img
+            class="tarjeta__imagen"
+            src="img/accesibilidad-dispositivos.jpg"
+            alt="Persona usando un portátil y un móvil"
+            width="800"
+            height="533"
+            loading="lazy"
+          >
+        </picture>
           <div class="tarjeta__cuerpo">
             <p class="tarjeta__meta"><span class="etiqueta">Accesibilidad</span> <time datetime="2026-03-03">03 mar 2026</time></p>
             <h3 class="tarjeta__titulo">Guía de accesibilidad para equipos pequeños</h3>
@@ -127,7 +159,14 @@
           </div>
         </article>
         <article class="tarjeta">
-          <img class="tarjeta__imagen" src="img/art-3.jpg" alt="" width="800" height="500" loading="lazy">
+          <img
+            class="tarjeta__imagen"
+            src="img/software-libre.webp" srcset="img/software-libre-pequena.webp 400w, img/software-libre.webp 800w" sizes="(max-width: 600px) calc(100vw - 40px), 400px"
+            alt="Tecla de un teclado con el texto «Free Software»"
+            width="800"
+            height="533"
+            loading="lazy"
+          >
           <div class="tarjeta__cuerpo">
             <p class="tarjeta__meta"><span class="etiqueta">Comunidad</span> <time datetime="2026-02-21">21 feb 2026</time></p>
             <h3 class="tarjeta__titulo">Software libre en el tercer sector</h3>
@@ -136,7 +175,14 @@
           </div>
         </article>
         <article class="tarjeta">
-          <img class="tarjeta__imagen" src="img/art-4.jpg" alt="" width="800" height="500" loading="lazy">
+          <img
+            class="tarjeta__imagen"
+            src="img/hosting-verde.webp" srcset="img/hosting-verde-pequena.webp 400w, img/hosting-verde.webp 800w" sizes="(max-width: 600px) calc(100vw - 40px), 400px"
+            alt="Superordenador Peregrine en un centro de datos"
+            width="800"
+            height="533"
+            loading="lazy"
+          >
           <div class="tarjeta__cuerpo">
             <p class="tarjeta__meta"><span class="etiqueta">Herramientas</span> <time datetime="2026-02-10">10 feb 2026</time></p>
             <h3 class="tarjeta__titulo">Hosting verde: qué mirar antes de elegir</h3>
@@ -145,7 +191,14 @@
           </div>
         </article>
         <article class="tarjeta">
-          <img class="tarjeta__imagen" src="img/art-5.jpg" alt="" width="800" height="500" loading="lazy">
+          <img
+            class="tarjeta__imagen"
+            src="img/rendimiento-web.webp" srcset="img/rendimiento-web-pequena.webp 400w, img/rendimiento-web.webp 800w" sizes="(max-width: 600px) calc(100vw - 40px), 400px"
+            alt="Gráfica que compara tiempos de carga de una página web"
+            width="800"
+            height="552"
+            loading="lazy"
+          >
           <div class="tarjeta__cuerpo">
             <p class="tarjeta__meta"><span class="etiqueta">Buenas prácticas</span> <time datetime="2026-01-28">28 ene 2026</time></p>
             <h3 class="tarjeta__titulo">Rendimiento web y sostenibilidad</h3>
@@ -154,7 +207,14 @@
           </div>
         </article>
         <article class="tarjeta">
-          <img class="tarjeta__imagen" src="img/art-6.jpg" alt="" width="800" height="500" loading="lazy">
+          <img
+            class="tarjeta__imagen"
+            src="img/documentacion.webp" srcset="img/documentacion-pequena.webp 400w, img/documentacion.webp 800w" sizes="(max-width: 600px) calc(100vw - 40px), 400px"
+            alt="Ejemplo de un archivo de documentación escrito en Markdown"
+            width="800"
+            height="225"
+            loading="lazy"
+          >
           <div class="tarjeta__cuerpo">
             <p class="tarjeta__meta"><span class="etiqueta">Comunidad</span> <time datetime="2026-01-15">15 ene 2026</time></p>
             <h3 class="tarjeta__titulo">Cómo documentar un proyecto abierto</h3>
@@ -172,7 +232,9 @@
           <h2 id="banner-titulo">¿Quieres ayudar?</h2>
           <p>Tu aportación financia herramientas abiertas y formación para organizaciones sociales.</p>
         </div>
-        <a class="btn btn--donar" href="formulario.html">Dona ahora</a>
+        <a class="btn btn--donar" href="formulario.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono" aria-hidden="true" focusable="false" data-tabler="heart">
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
+</svg> Dona ahora</a>
       </div>
     </aside>
   </main>
@@ -182,7 +244,7 @@
       <div class="pie__principal">
         <div class="pie__marca">
           <a class="logo" href="index.html" title="Ir al inicio">
-            <img class="logo__marca" src="img/logo-claro.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
+            <img class="logo__marca" src="img/svg/logo-claro.svg" alt="Software Sostenible ONG, ir al inicio" width="44" height="44">
             <span class="logo__texto" aria-hidden="true"><strong>SOFTWARE</strong> <span>SOSTENIBLE ONG</span></span>
           </a>
           <p>Tecnología abierta y eficiente para organizaciones con impacto.</p>
@@ -214,6 +276,16 @@
           </div>
         </div>
       </div>
+      <div class="pie__creditos">
+        <p><strong>Créditos de imágenes</strong></p>
+        <ul>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Carbon_footprint_representation.jpg">Carbon footprint representation</a>, de Notnarayan. <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Redimensionado, compresión, conversión y encuadre de presentación con CSS. Las versiones adaptadas se ofrecen bajo la misma licencia.</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Person_works_on_laptop_while_holding_smartphone_in_living_room.jpg">Person works on laptop while holding smartphone in living room</a>, de Shixart1985. <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>. Redimensionado, compresión, conversión y encuadre de presentación con CSS.</li>
+          <li><a href="https://www.picpedia.org/keyboard/f/free-software.html">Free Software</a>, de <a href="http://www.nyphotographic.com/">Nick Youngson</a>, <a href="https://alphastockimages.com/">Alpha Stock Images</a>. <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Redimensionado, compresión, conversión y encuadre de presentación con CSS. Las versiones adaptadas se ofrecen bajo la misma licencia.</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Timing_metrics_(render_and_fully_loaded_time).png">Timing metrics</a>, de Jdlrobson. <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Redimensionado, compresión, conversión y encuadre de presentación con CSS. Las versiones adaptadas se ofrecen bajo la misma licencia.</li>
+        </ul>
+      </div>
+      <p class="pie__creditos">Iconos de <a href="https://tabler.io/icons">Tabler Icons</a>, Paweł Kuna. <a href="img/svg/tabler/LICENSE.txt">Licencia MIT</a>. Tamaño y color adaptados con CSS.</p>
       <div class="pie__legal">
         <p><small>© 2026 Software Sostenible ONG. Todos los derechos reservados.</small></p>
         <p><small>Política de privacidad · Aviso legal · Accesibilidad</small></p>
